@@ -11,16 +11,16 @@
 }
 .eachproduct{
     width: 200px;
-    background-color: blue;
+    /* background-color: blue; */
     display: flex;
     flex-direction: column;
    justify-content: space-around;
     margin: 10px;
 }
 .category{
-    /* margin: 10px; */
-    /* width: 10%; */
-    border: 3px solid black;
+    
+    border: 3px solid gray;
+    padding: 10px;
 }
 .featured{
     width: 98%;
@@ -40,7 +40,26 @@ footer{
 a{
     color: white;
 }
+.cart{
+    background-color: #DB4444;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+}
+.cat{
+    margin-top: 20px;
+    border: none;
+    background-color: wheat;
+    border-radius: 10px;
+}
 
+.cartItem{
+    border: 3px solid black;
+}
+.cartImage{
+    width: 100px;
+}
 
 @media (max-width:620px){
     footer{

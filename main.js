@@ -4,30 +4,34 @@ let html = document.querySelector(".product")
 let category = document.querySelector(".category")
 
 
+getCategory()
 
 function getCategory(){
     fetch('https://fakestoreapi.com/products/categories')
             .then(res=>res.json())
             .then(json=>{
                 json.forEach((data, index)=>{
-                    category.innerHTML+=`<h2>${data}</h2`
+                    category.innerHTML+=`<div class= "container"><button class="cat">${data}</button </div>`
                 })
+                displayCategory ()
             })
-    
+      
     
 
 }
 
-getCategory()
-function displayProduct (){
-
-
 fetch("https://fakestoreapi.com/products")
 .then((response)=>response.json())
 .then((data)=>{
-    // console.log(data)
-  data.forEach((value) => {
-   
+console.log(data)
+displayProduct(data)
+
+})
+
+function displayProduct(data){
+
+    html.innerHTML = ""
+    data.forEach((value) => {
    
         html.innerHTML +=`<div class="eachproduct">
         <img src="${value.image}" width="100%"/>
@@ -36,12 +40,44 @@ fetch("https://fakestoreapi.com/products")
         <button>Add to cart</button>
         
         </div>`
-        console.log(value)
-  
-    
-  });
-})
+        // console.log(value)
+        
+
+  })
+individualProduct()
 
 }
-displayProduct()
-// console.log(dataArray)
+
+
+function individualProduct(){
+    let products = document.querySelectorAll(".eachproduct")
+    products.forEach((product,index)=>{
+        product.addEventListener("click",()=>{
+            localStorage.setItem("indiProduct",index+1)
+            window.location.href = "details.html"
+        })
+    })
+
+
+}
+
+function displayCategory (){
+    let cat = document.querySelectorAll(".cat")
+    
+   cat.forEach((cat)=>{
+
+    cat.addEventListener("click", ()=>{
+        let procat = cat.innerHTML
+
+        fetch(`https://fakestoreapi.com/products/category/${procat}`)
+            .then(res=>res.json())
+            .then(json=>{
+                displayProduct(json)
+                console.log(json)
+            })
+    })
+   })
+
+
+}
+
