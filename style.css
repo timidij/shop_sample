@@ -23,9 +23,11 @@
     padding: 10px;
 }
 .featured{
-    width: 98%;
-    height: 400px;
-    background-color: red;
+    width: 100%;
+  
+}
+.featured >img{
+    width: 100%;
 }
 
 footer{
@@ -57,10 +59,26 @@ a{
 .cartItem{
     border: 3px solid black;
 }
+.cartitems{
+    display: flex;
+    flex-direction: column;
+}
 .cartImage{
     width: 100px;
 }
-
+.amount{
+    padding: 10px;
+}
+.increase, .decrease{
+    padding: 20px;
+    
+}
+.nodisplay{
+    display: none;
+}
+.carteach{
+    display: flex;
+}
 @media (max-width:620px){
     footer{
         flex-direction: column;
